@@ -63,11 +63,11 @@ public class ArticleService {
 
     }
 
-    public List<ArticleEntity> SearchByTitle(String  searchcontent) {
-            if( searchcontent == null)
+    public List<ArticleEntity> SearchByTitle(String  searchcontent123) {
+            if( searchcontent123 == null)
                 return null;
 
-            return articleRepository.findByTitle(searchcontent);
+            return articleRepository.findByTitle(searchcontent123);
     }
 
     public List<ArticleEntity> SearchByContent(String searchcontent) {
