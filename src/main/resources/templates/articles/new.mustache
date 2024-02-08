@@ -1,0 +1,48 @@
+{{>layouts/header}}
+
+
+<form class="container">
+    <input type="hidden" value="1" id="create-article-viewcnt">
+    <div class="mb-3">
+        <label  class="form-label">제목</label>
+        <input type="text" class="form-control" id ="create-article-title">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">내용</label>
+        <textarea  class="form-control" rows="3"  id ="create-article-content"></textarea>
+    </div>
+    <button type="button" class="btn btn-primary" id ="create-article-btn">Submit</button>
+    <a href="/articles">Back</a>
+</form>
+
+{{>layouts/footer}}
+
+<script>
+    //게시글 생성
+    {
+        const createBtn = document.querySelector("#create-article-btn");
+        createBtn.addEventListener("click",function(event){
+        const article={
+           title : document.querySelector("#create-article-title").value,
+           content : document.querySelector("#create-article-content").value,
+           viewcnt : document.querySelector("#create-article-viewcnt").value
+        }
+
+         console.log(article);1
+    const url="/api/articles";
+    fetch(url,{
+    method: "POST",
+    headers: {
+        "Content-Type" : "application/json"
+        },
+        body: JSON.stringify(article)
+    }).then(response => {
+    const msg = (response.ok) ? "게시글 등록 완료.":"게시글 등록 실패..!";
+    alert(msg);
+
+    window.location.href = '/articles';
+    });
+});
+
+    }
+</script>
