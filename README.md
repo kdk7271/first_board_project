@@ -24,6 +24,7 @@
 
 <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
 
+*****
 
 ## 주요 기능
 
@@ -31,13 +32,19 @@
 
 ![Image](https://github.com/user-attachments/assets/2cf670dd-e0fe-4bcd-9cc5-bbbcd1ec617b)
 
+*****
+
 2. 게시물 목록 : 전체 게시물 목록을 확인하고 게시물을 검색할 수 있도록 구현하였습니다.
 
 ![Image](https://github.com/user-attachments/assets/6473421c-81c5-4c20-8a3d-ee7f8d4d24dd)
 
+*****
+
 3. 게시물 상세 페이지 : 게시물의 상세 내용, 조회수를 확인하고 댓글을 입력할 수 있도록 구현하였습니다.
 
 ![Image](https://github.com/user-attachments/assets/078cbe7d-5291-424f-a595-6dca74ad68ab)
+
+*****
 
 ## 프로젝트 결과
 
