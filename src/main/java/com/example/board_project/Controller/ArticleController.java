@@ -97,6 +97,8 @@ public class ArticleController {
             return "redirect:/articles/search/title/"+oksearchcontent;
         else
             return "redirect:/articles/search/content/"+oksearchcontent;
+        
+        //qfwewqfqeweqfqewf
     }
 
     @Transactional
