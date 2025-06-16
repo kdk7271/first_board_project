@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 
@@ -15,6 +16,7 @@ import javax.annotation.processing.Generated;
 @AllArgsConstructor
 @ToString
 @Getter
+@NoArgsConstructor
 public class ArticleDto {
 
     private Long id;

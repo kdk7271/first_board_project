@@ -1,0 +1,59 @@
+{{>layouts/header}}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Content</th>
+        <th scope="col">조회수</th>
+    </tr>
+    </thead>
+    {{#article}}
+        <tbody>
+        <tr>
+            <td>{{id}}</td>
+            <td>{{title}}</td>
+            <td>{{content}}</td>
+            <td>{{viewcnt}}</td>
+        </tr>
+        </tbody>
+    {{/article}}
+</table>
+<a href="/articles/edit/{{article.id}}" class="btn btn-primary">Edit</a>
+<button type="button" class="btn btn-danger" id="delete-article-btn" data-bs-delete="{{article.id}}">Delete</button>
+<a href="/articles">go back to articles</a>
+
+{{>Comments/_comment}}
+
+{{>layouts/footer}}
+
+<script>
+    //게시글 삭제
+    {
+        const DeleteBtn = document.querySelector("#delete-article-btn");
+
+        DeleteBtn.addEventListener("click",function(event){
+
+            const Delete = event.target;
+
+            const ArticleId = Delete.getAttribute("data-bs-delete");
+
+             const url = "/api/articles/"+ArticleId;
+             fetch(url,{
+                method:"DELETE"
+             }).then(response=>{
+
+                const msg = (response.ok) ? "게시글 삭제 완료!" : "게시글 삭제 실패!";
+                alert(msg);
+                window.location.href='/articles';
+             });
+        });
+    }
+</script>
+
+<script>
+    {
+    }
+</script>
+

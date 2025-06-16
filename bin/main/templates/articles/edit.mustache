@@ -1,0 +1,51 @@
+{{>layouts/header}}
+
+{{#article}}
+<form class="container">
+    <input type="hidden" id="article-id" value="{{id}}">
+    <div class="mb-3">
+        <label  class="form-label">제목</label>
+        <input type="text" class="form-control" id ="update-article-title" name="title" value="{{title}}">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">내용</label>
+        <textarea  class="form-control" rows="3"  id ="update-article-content">{{content}}</textarea>
+    </div>
+    <button type="button" class="btn btn-primary" id ="update-article-btn">Submit</button>
+    <a href="/articles"/{{id}}>Back</a>
+</form>
+{{/article}}
+
+
+{{>layouts/footer}}
+
+<script>
+    //게시글 수정
+    {
+        const editBtn = document.querySelector("#update-article-btn");
+        editBtn.addEventListener("click",function(event) {
+            const article = {
+                id: document.querySelector("#article-id").value,
+                title : document.querySelector("#update-article-title").value,
+                content : document.querySelector("#update-article-content").value
+            }
+
+            const url = "/api/articles/"+article.id;
+            fetch(url,{
+            method:"PATCH",
+            headers: {
+                "Content-Type":"application/json"
+                },
+                body: JSON.stringify(article)
+                }).then(response=>{
+
+                    const msg = (response.ok) ? "게시글 수정 완료!" : "게시글글 수정 실패!"
+                    alert(msg);
+                    window.location.href = '/articles/'+article.id;
+               });
+        });
+
+    }
+
+
+</script>
